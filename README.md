@@ -223,7 +223,7 @@ routes/
 
 ---
 
-## 📌 Critères d'évaluation
+## Critères d'évaluation
 
 | Critère | Points |
 |---|---|
