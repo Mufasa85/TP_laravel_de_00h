@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+/**
+ * Contrôleur des pages d'administration (dashboard).
+ * Toutes les routes sont préfixées par /dashboard et nommées dashboard.*
+ */
 class DashboardController extends Controller
 {
     public function index()
@@ -36,4 +38,3 @@ class DashboardController extends Controller
         return view('dashboard.settings');
     }
 }
-

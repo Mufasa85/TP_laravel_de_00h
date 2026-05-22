@@ -1,7 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
+me @extends('Dashboard')
 
-<head>
+@section('title', 'Articles — Dashboard')
+
+@section('content')
+
+{{-- Contenu injection dans le layout Dashboard --}}
+
+{{-- NOTE: html/head/body supprimés : Dashboard layout gère déjà la structure --}}
+
+
+{{-- head injecté dans le layout : on supprime le <head> --}}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles — Dashboard</title>
@@ -335,4 +344,5 @@
     </script>
 </body>
 
-</html>
+@endsection
+

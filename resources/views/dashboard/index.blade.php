@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
+@extends('Dashboard')
+
+{{-- NOTE: this file is legacy content injected into @yield('content') --}}
+
+
+@section('title', 'Dashboard — Le Blog')
+
+@section('content')
+
+<!-- NOTE: contenu récupéré depuis l'ancien fichier HTML dashboard.
+     Objectif: injecter le contenu dans le layout Dashboard via @section('content').
+-->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Le Blog</title>
+{{-- NOTE: <title> géré par resources/views/dashboard.blade.php --}}
+
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
@@ -433,11 +444,10 @@
             animation: fadeIn 0.3s ease;
         }
     </style>
-</head>
+<!-- NOTE: le layout Dashboard fournit déjà sidebar/topbar + css. Ici on garde juste le contenu dashboard. -->
 
-<body>
+        {{-- Contenu HTML historique à conserver (laisser tel quel) : injecté dans @yield('content') --}}
 
-    <aside class="sidebar">
         <div class="sidebar-brand">
             <a href="index.html" class="sidebar-logo">Le Blog</a>
             <div class="sidebar-sub">Administration</div>
@@ -615,4 +625,5 @@
 
 </body>
 
-</html>
+@endsection
+
