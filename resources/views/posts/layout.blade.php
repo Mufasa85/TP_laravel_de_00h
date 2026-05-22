@@ -14,19 +14,8 @@
 </head>
 
 <body>
-    @include('components.header')
-
-    {{-- Zone dynamique du titre (pour la balise <title> côté layout header si besoin) --}}
-    {{-- Ici on place au minimum un point d'injection Blade demandé par l'énoncé. --}}
-    @yield('title')
-
     @yield('content')
-
-    @include('components.footer')
 </body>
 
 </html>
-
-
-
 

@@ -133,6 +133,7 @@ Exemple de routes attendues :
 
 Générez les deux contrôleurs suivants via la commande `php artisan make:controller` :
 
+
 **`MainController`** — gérera toutes les vues publiques :
 - `index()` → vue de la page d'accueil
 - `articles()` → vue de la liste des articles
@@ -152,18 +153,31 @@ Chaque méthode doit retourner sa vue correspondante avec `return view('...')`.
 
 **Questions :**
 
-1. Quelle est la commande artisan pour générer un contrôleur ? Quelle option ajouter pour générer directement un **contrôleur de ressource** avec toutes les méthodes CRUD ?
-2. Quelle est la convention de nommage des méthodes d'un contrôleur de ressource Laravel (`index`, `show`, `create`, `store`, `edit`, `update`, `destroy`) ? À quelle action correspond chacune ?
-3. Quelle est la différence entre ces trois façons de passer des données à une vue depuis un contrôleur ?
-   ```php
-   return view('articles', ['posts' => $posts]);
-   return view('articles', compact('posts'));
-   return view('articles')->with('posts', $posts);
-   ```
+1. **Commande artisan :**
+   - Générer un contrôleur : `php artisan make:controller MainController`
+   - Générer un **contrôleur de ressource** (CRUD complet) : `php artisan make:controller MainController --resource` (ou `-r`)
+
+2. **Convention des méthodes d’un contrôleur de ressource Laravel :**
+   - `index()` → liste des ressources (ex: tous les articles)
+   - `show($id)` → afficher une ressource unique (ex: un article)
+   - `create()` → afficher le formulaire de création
+   - `store(Request $request)` → enregistrer la nouvelle ressource
+   - `edit($id)` → afficher le formulaire de modification
+   - `update(Request $request, $id)` → mettre à jour la ressource existante
+   - `destroy($id)` → supprimer la ressource
+
+3. **Différence entre ces 3 façons de passer des données à une vue :**
+   - `return view('articles', ['posts' => $posts]);`
+     - Passe un tableau associatif directement.
+   - `return view('articles', compact('posts'));`
+     - `compact('posts')` construit automatiquement le tableau à partir de la(les) variable(s) existante(s) (`$posts`).
+   - `return view('articles')->with('posts', $posts);`
+     - Utilise la méthode `with()` pour attacher la donnée à la vue (chaînable).
 
 ---
 
 ### Question 7 — Liens et navigation
+
 
 Sont concernés (liste non exhaustive) :
 - Les liens de la navbar publique (Accueil, Articles, Catégories, À propos)
